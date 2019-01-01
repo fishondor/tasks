@@ -4,19 +4,19 @@ export default function() {
 
   this.get('/tasks', function() {
     let tasks = [{
-      id: 1,
+      id: 0,
       name: "משימה A",
       done: "false"
     }, {
-      id: 2,
+      id: 1,
       name: "משימה B",
       done: "false"
     }, {
-      id: 3,
+      id: 2,
       name: "משימה C",
       done: "true"
     }, {
-      id: 4,
+      id: 3,
       name: "משימה D",
       done: "false"
     }];
