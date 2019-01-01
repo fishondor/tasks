@@ -1,8 +1,5 @@
 <div class="tasks-container">
-    <header class="menu">
-        <P class="title">משימות</P>
-        <button class="add-item"></button>
-    </header>
+    {{tasks-header}}
     {{tasks-list tasksList=model class="tasks-main"}}
     {{footer-tasks tasksList=model}}
 </div>
