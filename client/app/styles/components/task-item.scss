@@ -46,6 +46,7 @@ $checkbox-size: 25px;
         position: relative;
         width: $checkbox-size;
         height: $checkbox-size;
+        cursor: pointer;
         .checkmark{
             position: absolute;
             top: 0;

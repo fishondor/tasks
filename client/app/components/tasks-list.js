@@ -11,6 +11,12 @@ export default Component.extend({
         },
         updateItem(task){
             this.onUpdateItem(task);
+        },
+        addItem(task){
+            this.onAddItem(task);
+        },
+        addItemCanceled(){
+            this.onAddItemCanceled();
         }
     }
 

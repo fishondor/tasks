@@ -8,6 +8,13 @@ export default Component.extend({
 
     isEditing: false,
 
+    willRender(){
+        if(!this.get('task')){
+            this.set('task', {});
+            this.set('isEditing', true);
+        }
+    },
+
     actions:{
         toggleDoneProperty(){
             this.set("task.done", !this.get("task.done"));
@@ -17,11 +24,18 @@ export default Component.extend({
             this.toggleEdit();
         },
         deleteItemClicked(id){
-            this.onDeleteItem(id);
+            if(this.get('isEditing'))
+                this.send('cancelEdit');
+            else
+                this.onDeleteItem(id);
         },
         onEditEnter(){
             this.toggleEdit();
             this.emitItemUpdated();
+        },
+        cancelEdit(){
+            if(this.get("editCanceled")) this.editCanceled();
+            this.toggleEdit();
         }
     },
 

@@ -1,4 +1,7 @@
 <ul class="tasks-list">
+    {{#if isAddingItem}}
+        {{task-item onItemUpdated=(action "addItem") editCanceled=(action "addItemCanceled")}}
+    {{/if}}
     {{#each tasksList as |taskItem index|}}
         {{task-item 
             task=taskItem 

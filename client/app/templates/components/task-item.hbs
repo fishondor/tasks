@@ -1,9 +1,19 @@
 <label class="checkbox-container">
-    {{input type='checkbox' checked=(mut (get task "done")) change=(action "toggleDoneProperty")}}
+    {{input 
+        type='checkbox' 
+        checked=(mut (get task "done")) 
+        change=(action "toggleDoneProperty")
+        disabled=isEditing}}
     <span class="checkmark"></span>
 </label>
 {{#if isEditing}}
-    {{input type="text" class="item-text" autofocus="true" enter="onEditEnter" value=task.name}}
+    {{input 
+        type="text" 
+        class="item-text" 
+        autofocus="true" 
+        enter="onEditEnter" 
+        value=task.name
+        escape-press="cancelEdit"}}
 {{else}}
     <p class="item-text {{if task.done "done"}}" {{action "toggleEditProperty"}}><b>{{add itemIndex 1}}.</b> {{task.name}}</p>
 {{/if}}
