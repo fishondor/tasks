@@ -1,0 +1,12 @@
+.tasks-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.tasks-list{
+    flex-grow: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+}
