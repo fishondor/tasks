@@ -13,4 +13,12 @@ export default Component.extend({
         this.set('STRINGS', this.get('constants').STRINGS);
     },
 
+    actions: {
+
+        addItemClicked(){
+            this.get('onAddItem')();
+        }
+
+    }
+
 });
