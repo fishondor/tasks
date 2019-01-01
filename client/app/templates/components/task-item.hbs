@@ -1,0 +1,6 @@
+<label class="checkbox-container">
+    {{input type='checkbox' checked=(mut (get task "done")) change=(action "toggleDoneProperty")}}
+    <span class="checkmark"></span>
+</label>
+<p class="item-text {{if task.done "done"}}"><b>{{add itemIndex 1}}.</b> {{task.name}}</p>
+<button class="item-delete">X</button>
