@@ -3,10 +3,6 @@
         <P class="title">משימות</P>
         <button class="add-item"></button>
     </header>
-    <ul class="tasks-list">
-        {{#each model as |taskItem index|}}
-            {{task-item task=taskItem itemIndex=index}}
-        {{/each}}
-    </ul>
+    {{tasks-list tasksList=model class="tasks-main"}}
     {{footer-tasks tasksList=model}}
 </div>
