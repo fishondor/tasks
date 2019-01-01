@@ -3,4 +3,4 @@
     <span class="checkmark"></span>
 </label>
 <p class="item-text {{if task.done "done"}}"><b>{{add itemIndex 1}}.</b> {{task.name}}</p>
-<button class="item-delete">X</button>
+<button class="item-delete" {{action "deleteItemClicked" task.id}}>X</button>

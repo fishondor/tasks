@@ -8,6 +8,9 @@ export default Component.extend({
     actions:{
         toggleDoneProperty(){
             this.set("task.done", !this.get("task.done"));
+        },
+        deleteItemClicked(id){
+            this.onDeleteItem(id);
         }
     }
 
