@@ -16,11 +16,9 @@ export default Component.extend({
     },
 
     tasksFinished: computed('tasksList.@each.done', function(){
-        console.log("tasksList", this.tasksList);
         return this.tasksList.filterBy( 'done', true).length;
     }),
     tasksUnfinished: computed('tasksList.@each.done', function(){
-        console.log("tasksList", this.tasksList);
         return this.tasksList.filterBy( 'done', false).length;
     }),
 
