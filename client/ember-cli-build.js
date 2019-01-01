@@ -6,6 +6,16 @@ module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
     'ember-math-helpers': {
       only: ['add']
+    },
+    sassOptions: {
+      extension: 'scss'
+    },
+    autoprefixer: {
+      browsers: [
+        'last 1 Chrome versions',
+        'last 1 Firefox versions'
+      ],
+      cascade: true
     }
   });
 
