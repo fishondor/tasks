@@ -24,6 +24,15 @@ $checkbox-size: 25px;
         flex-grow: 1;
         margin: 0 20px;
         padding: 3px;
+        cursor: pointer;
+    }
+    input.item-text{
+        border: none;
+        border-bottom: 1px solid $color-checked;
+        font-size: inherit;
+        &:focus{
+            outline: none;
+        }
     }
     .item-delete{
         background: none;

@@ -1,5 +1,9 @@
 <div class="tasks-container">
     {{tasks-header onAddItem=(action "addTaskItem")}}
-    {{tasks-list tasksList=model class="tasks-main" onDeleteItem=(action "deleteItem")}}
+    {{tasks-list 
+        tasksList=model 
+        class="tasks-main" 
+        onDeleteItem=(action "deleteItem")
+        onUpdateItem=(action "editItem")}}
     {{footer-tasks tasksList=model}}
 </div>

@@ -1,5 +1,9 @@
 <ul class="tasks-list">
     {{#each tasksList as |taskItem index|}}
-        {{task-item task=taskItem itemIndex=index onDeleteItem=(action "deleteItem")}}
+        {{task-item 
+            task=taskItem 
+            itemIndex=index 
+            onDeleteItem=(action "deleteItem")
+            onItemUpdated=(action "updateItem")}}
     {{/each}}
 </ul>

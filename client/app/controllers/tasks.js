@@ -12,6 +12,15 @@ export default Controller.extend({
                     task.destroyRecord();
                 }
             )
+        },
+        editItem(item){
+            this.store.findRecord('task', item.id, { backgroundReload: false }).then(
+                task => {
+                    console.log("updating", task);
+                    /*task.set('done', item.done);
+                    task.set('name', task.name);*/
+                }
+            )
         }
     }
 });

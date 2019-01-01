@@ -8,6 +8,9 @@ export default Component.extend({
     actions: {
         deleteItem(id){
             this.onDeleteItem(id);
+        },
+        updateItem(task){
+            this.onUpdateItem(task);
         }
     }
 
