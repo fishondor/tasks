@@ -5,8 +5,6 @@ import * as taskModel from '../models/task';
 export default DS.JSONAPISerializer.extend({
     normalizeResponse(store, primaryModelClass, payload) {
 
-        console.log("serialize");
-
         let serializedObject = {
             data: Array.isArray(payload) ? taskModel.toJSONArrayFormat(payload) : taskModel.toJSONObjectFormat(payload)
         }
