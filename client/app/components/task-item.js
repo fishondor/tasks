@@ -17,7 +17,7 @@ export default Component.extend({
 
     actions:{
         toggleDoneProperty(){
-            this.set("task.done", !this.get("task.done"));
+            this.toggleProperty("task.done");
             this.emitItemUpdated();
         },
         toggleEditProperty(){
@@ -44,7 +44,7 @@ export default Component.extend({
     },
 
     emitItemUpdated(){
-        this.onItemUpdated(this.task);
+        this.onItemUpdated(this.get('task'), this.get('task.name'), this.get('task.done'));
     }
 
 });
