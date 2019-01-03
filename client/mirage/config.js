@@ -2,29 +2,11 @@ export default function() {
 
   this.namespace = '/api';
 
-  this.get('/tasks', function() {
-    return [{
-      id: 0,
-      name: "משימה A",
-      done: "false"
-    }, {
-      id: 1,
-      name: "משימה B",
-      done: "false"
-    }, {
-      id: 2,
-      name: "משימה C",
-      done: "true"
-    }, {
-      id: 3,
-      name: "משימה D",
-      done: "false"
-    }, {
-      id: 4,
-      name: "משימה E",
-      done: "true"
-    }];
-  });
+  this.get('/tasks');
+  this.post('/tasks');
+  this.patch('/tasks/:id');
+  this.del('/tasks/:id');
+  this.get('/tasks/:id');
 
   // These comments are here to help you get started. Feel free to delete them.
 
