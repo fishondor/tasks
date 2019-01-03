@@ -10,7 +10,8 @@ export default Controller.extend({
         },
         addTaskItem(task){
             this.set('isAddingItem', false);
-            this.store.push({data : [{id: this.get('model.length'), type: 'task', attributes: {name: task.name, done: task.done}}]});
+            let createdTask = this.store.createRecord('task', {name: task.name, done: task.done});
+            createdTask.save();
         },
         addTaskCanceled(){
             this.set('isAddingItem', false);
@@ -22,12 +23,12 @@ export default Controller.extend({
                 }
             )
         },
-        editItem(item){
-            this.store.findRecord('task', item.id, { backgroundReload: false }).then(
+        editItem(item, name, done){
+            this.store.findRecord('task', item.id).then(
                 task => {
-                    console.log("updating", task);
-                    /*task.set('done', item.done);
-                    task.set('name', task.name);*/
+                    task.set('done', done);
+                    task.set('name', name);
+                    task.save();
                 }
             )
         }
