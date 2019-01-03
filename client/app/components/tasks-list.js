@@ -9,8 +9,8 @@ export default Component.extend({
         deleteItem(id){
             this.onDeleteItem(id);
         },
-        updateItem(task){
-            this.onUpdateItem(task);
+        updateItem(task, name, done){
+            this.onUpdateItem(task, name, done);
         },
         addItem(task){
             this.onAddItem(task);
