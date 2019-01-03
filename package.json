@@ -1,0 +1,19 @@
+{
+  "name": "tasks",
+  "version": "1.0.0",
+  "description": "Example tasks list app with laravel and ember",
+  "main": "index.js",
+  "scripts": {
+    "build": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fishondor/tasks.git"
+  },
+  "author": "Ariel Fisher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fishondor/tasks/issues"
+  },
+  "homepage": "https://github.com/fishondor/tasks#readme"
+}
