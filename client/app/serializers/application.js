@@ -6,7 +6,9 @@ export default DS.JSONAPISerializer.extend({
     normalizeResponse(store, primaryModelClass, payload) {
 
         let serializedObject = {
-            data: Array.isArray(payload) ? taskModel.toJSONArrayFormat(payload) : taskModel.toJSONObjectFormat(payload)
+            data: Array.isArray(payload) ? 
+                taskModel.toJSONArrayFormat(payload) : 
+                taskModel.toJSONObjectFormat(payload)
         }
     
         return serializedObject;
