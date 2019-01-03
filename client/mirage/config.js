@@ -3,7 +3,7 @@ export default function() {
   this.namespace = '/api';
 
   this.get('/tasks', function() {
-    let tasks = [{
+    return [{
       id: 0,
       name: "משימה A",
       done: "false"
@@ -19,12 +19,11 @@ export default function() {
       id: 3,
       name: "משימה D",
       done: "false"
+    }, {
+      id: 4,
+      name: "משימה E",
+      done: "true"
     }];
-    return {
-      data: tasks.map(attrs => (
-        {type: 'tasks', id: attrs.id, attributes: attrs }
-      ))
-    };
   });
 
   // These comments are here to help you get started. Feel free to delete them.
