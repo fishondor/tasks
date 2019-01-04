@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use DB;
+use Log;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\Task;
+
+const ERROR_MESSAGE = "The server encountered an error while proccessing the request";
 
 class TaskController extends Controller
 {
@@ -39,10 +42,20 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
+        if(!$request->name || $request->done === null){
+            Log::warning("Update request with invalid parameters. name: {$request->name}, done: {$request->done}");
+            return response()->json(ERROR_MESSAGE, 422);
+        }
+
         $task = new Task;
         $task->name = $request->name;
         $task->done = $request->done;
-        $task->save();
+
+        $success = $task->save();
+        if(!$success){
+            Log::error("Failed to create new task item with params name: '{$request->name}' and done: '{$request->done}' returned no results");
+            return response()->json(ERROR_MESSAGE, 422);
+        }
         return response()->json($task);
     }
 
@@ -78,6 +91,12 @@ class TaskController extends Controller
     public function update(Request $request, $id)
     {
         $task = DB::table('tasks')->where('id',$id)->update(['name'=>$request->name, 'done'=>$request->done]);
+
+        if(!$task){
+            Log::error("The executed query for updating $id with params name: '{$request->name}' and done: '{$request->done}' returned no results");
+            return response()->json(ERROR_MESSAGE, 422);
+        }
+        
         $response = Task::find($id);
         return response()->json($response);
     }
@@ -90,9 +109,18 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        $task = Task::find($id);
+        $task = Task::find($id); 
+        if(!$task){
+            Log::error("Could not find record $id");
+            return response()->json(ERROR_MESSAGE, 422);
+        }
+
         $success = $task->delete();
-        return $success ? response()->json($task) : 
-                        response()->json($task);
+        if(!$success){
+            Log::error("Could not delete record $id");
+            return response()->json(ERROR_MESSAGE, 422);
+        }
+
+        return response()->json($task);
     }
 }
