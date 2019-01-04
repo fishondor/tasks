@@ -2,10 +2,14 @@ import Component from '@ember/component';
 import { inject as service } from '@ember/service';
 import { computed } from '@ember/object';
 
+import {
+    LANGUAGE_DIRECTION
+} from '../constants/global';
+
 export default Component.extend({
 
     tagName: "footer",
-    classNames: ['rtl', 'footer-tasks'],
+    classNames: [LANGUAGE_DIRECTION, 'footer-tasks'],
 
     STRINGS: null,
     constants: service(),
