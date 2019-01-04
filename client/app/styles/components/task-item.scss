@@ -30,8 +30,12 @@ $checkbox-size: 25px;
         border: none;
         border-bottom: 1px solid $color-checked;
         font-size: inherit;
+        position: relative;
         &:focus{
             outline: none;
+        }
+        &:invalid{
+            border-bottom-color: $color-error;
         }
     }
     .item-delete{

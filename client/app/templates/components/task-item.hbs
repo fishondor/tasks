@@ -9,8 +9,12 @@
 {{#if isEditing}}
     {{input 
         type="text" 
-        class="item-text" 
-        autofocus="true" 
+        class="item-text"
+        id="item-name"
+        autofocus="true"
+        maxlength=32
+        required="true"
+        pattern=validationRegex
         enter="onEditEnter" 
         value=task.name
         escape-press="cancelEdit"}}

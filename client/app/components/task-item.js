@@ -1,10 +1,19 @@
 import Component from '@ember/component';
+import { 
+    REGEX_INPUT_TEXT,
+    TOAST_OPTIONS
+} from '../constants/global';
+import {
+    NOTIFICATIONS
+} from '../constants/strings';
 
 export default Component.extend({
 
     tagName: "li",
     classNameBindings: ['task.done:done'],
     classNames: ['task-item'],
+
+    validationRegex: REGEX_INPUT_TEXT,
 
     isEditing: false,
 
@@ -28,8 +37,13 @@ export default Component.extend({
                 this.send('cancelEdit');
             else
                 this.onDeleteItem(id);
+                this.toast.info('Hello there!', '', TOAST_OPTIONS);
         },
         onEditEnter(){
+            if(!this.validateName()){
+                this.toast.warning(NOTIFICATIONS.INVALID_INPUT, '', TOAST_OPTIONS);
+                return;
+            }
             this.toggleEdit();
             this.emitItemUpdated();
         },
@@ -45,6 +59,10 @@ export default Component.extend({
 
     emitItemUpdated(){
         this.onItemUpdated(this.get('task'), this.get('task.name'), this.get('task.done'));
+    },
+
+    validateName(){
+        return this.$('#item-name')[0].checkValidity();
     }
 
 });
