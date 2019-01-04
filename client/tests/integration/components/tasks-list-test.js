@@ -5,20 +5,11 @@ moduleForComponent('tasks-list', 'Integration | Component | tasks list', {
   integration: true
 });
 
-test('it renders', function(assert) {
+test('it renders empty list', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
   this.render(hbs`{{tasks-list}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#tasks-list}}
-      template block text
-    {{/tasks-list}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$(".empty-message").text().includes('לא'), true);
 });

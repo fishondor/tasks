@@ -11,14 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{tasks-header}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#tasks-header}}
-      template block text
-    {{/tasks-header}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), 'משימות');
 });
