@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+use Illuminate\Database\QueryException;
+
+const ERROR_MESSAGE = "The server encountered an error while proccessing the request";
+
 class Handler extends ExceptionHandler
 {
     /**
@@ -43,8 +47,11 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $e
      * @return \Illuminate\Http\Response
      */
-    public function render($request, Exception $e)
+    public function render($request, Exception $exception)
     {
+        if($exception instanceof QueryException){
+            return response()->json(ERROR_MESSAGE, 500);
+        }
         return parent::render($request, $e);
     }
 }
