@@ -37,7 +37,6 @@ export default Component.extend({
                 this.send('cancelEdit');
             else
                 this.onDeleteItem(id);
-                this.toast.info('Hello there!', '', TOAST_OPTIONS);
         },
         onEditEnter(){
             if(!this.validateName()){
