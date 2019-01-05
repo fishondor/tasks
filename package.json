@@ -4,7 +4,8 @@
   "description": "Example tasks list app with laravel and ember",
   "main": "index.js",
   "scripts": {
-    "build": "node index.js"
+    "build": "node index.js -- build",
+    "start": "node index.js -- start"
   },
   "repository": {
     "type": "git",
